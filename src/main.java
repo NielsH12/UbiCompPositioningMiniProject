@@ -3,8 +3,8 @@ public class main {
 
         Radiomap rm = new Radiomap(10);
 
-        rm.addDataPoint("C:\\Users\\Niels Hvid\\IdeaProjects\\UbiCompPositioningMiniProject\\src\\measurements/ApStrengthsA.csv", new Position(0, 0)); // AP: A
-        //rm.addAP("ApStrengthsB.csv", new Position(0, 0)); // AP: B
+        rm.addDataPoint("C:/Users/Niels Hvid/IdeaProjects/UbiCompPositioningMiniProject/src/measurements/ApStrengthsA.csv", new Position(151, 32)); // AP: A
+        rm.addDataPoint("C:/Users/Niels Hvid/IdeaProjects/UbiCompPositioningMiniProject/src/measurements/ApStrengthsB.csv", new Position(83, 169)); // AP: B
 
 
 

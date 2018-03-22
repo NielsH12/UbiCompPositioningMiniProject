@@ -1,17 +1,22 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Datapoint {
-    Position position;
+    private Position position;
 
-    private List<Datareading> reading;
+    private List<Datareading> readings;
 
     Datapoint(Position _position){
         position = _position;
-        reading = new ArrayList<>();
+        readings = new ArrayList<>();
     }
 
     public void addDataReading(String addr, int SignalStrength){
-        reading.add(new Datareading(addr, SignalStrength))
+        //Optional<Datareading> result = readings.stream().filter(obj -> obj.address.equals(addr)).findAny();
+        //if (result.isPresent()){
+        //    return;
+        //}
+        readings.add(new Datareading(addr, SignalStrength));
     }
 }
