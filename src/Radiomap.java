@@ -1,14 +1,17 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Radiomap {
 
     private int maxBeacons;
-    private List<>;
+    private List<Datapoint> datapoints;
 
     Radiomap(int _maxBeacons){
         maxBeacons = _maxBeacons;
+        datapoints = new ArrayList<>();
     }
 
     public void addDataPoint(String csvFile, Position position){
