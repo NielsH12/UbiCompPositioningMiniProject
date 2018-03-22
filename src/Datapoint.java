@@ -3,12 +3,14 @@ import java.util.List;
 import java.util.Optional;
 
 public class Datapoint {
-    private Position position;
+    public String name;
+    public Position position;
 
-    private List<Datareading> readings;
+    public List<Datareading> readings;
 
-    Datapoint(Position _position){
+    Datapoint(Position _position, String _name){
         position = _position;
+        name = _name;
         readings = new ArrayList<>();
     }
 

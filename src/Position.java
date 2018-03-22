@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Position {
 
     public Position(int _x, int _y){
@@ -21,6 +19,10 @@ public class Position {
 
     public int getY() {
         return y;
+    }
+
+    public void print(){
+        System.out.println("X: " + x + "\t Y: " + y);
     }
 
     private int x;
