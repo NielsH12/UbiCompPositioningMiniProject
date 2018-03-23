@@ -15,10 +15,6 @@ public class Datapoint {
     }
 
     public void addDataReading(String addr, int SignalStrength){
-        //Optional<Datareading> result = readings.stream().filter(obj -> obj.address.equals(addr)).findAny();
-        //if (result.isPresent()){
-        //    return;
-        //}
         readings.add(new Datareading(addr, SignalStrength));
     }
 }
