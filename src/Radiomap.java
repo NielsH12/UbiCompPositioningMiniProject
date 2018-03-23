@@ -15,6 +15,58 @@ public class Radiomap {
         datapoints = new ArrayList<>();
     }
 
+    public Position KNNSS(String csvFile, int k){
+        System.out.println("Locating.. ");
+        Position pos = new Position(0,0);
+
+        int length = datapoints.size();
+        double[] distances = new double[length];
+
+        Datapoint sample = readCSV(csvFile);
+
+        for (Datapoint point:datapoints) {
+            double distance = compareDatapoint(sample, point);
+            distances[datapoints.indexOf(point)] = distance;
+        }
+
+        double[] lowestValues = new double[k];
+        Arrays.fill(lowestValues, Double.MAX_VALUE);
+
+        for (double n:distances) {
+            if (n < lowestValues[k-1]){
+                lowestValues[k-1] = n;
+                Arrays.sort(lowestValues);
+            }
+        }
+
+        List<Datapoint> kNearestPoints = new ArrayList<>();
+
+        for (double x: lowestValues) {
+            int index = find(distances, x);
+            kNearestPoints.add(datapoints.get(index));
+        }
+
+        int x = 0;
+        int y = 0;
+
+        for (Datapoint z: kNearestPoints) {
+            x += z.position.getX();
+            y += z.position.getY();
+        }
+
+        float _x = x/k;
+        float _y = y/k;
+
+        return new Position((int)_x, (int)_y);
+    }
+
+    private int find(double[] array, double value) {
+        for(int i=0; i<array.length; i++)
+            if(array[i] == value)
+                return i;
+        return -1;
+    }
+
     public Position NN(String csvFile){
         System.out.println("Locating.. ");
         double lowestDistance = 9000;

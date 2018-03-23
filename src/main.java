@@ -15,5 +15,8 @@ public class main {
 
         Position position = rm.NN(path + "Test/ApStrengthsTest.csv");
         position.print();
+
+        Position position2 = rm.KNNSS(path + "Test/ApStrengthsTest2.csv", 2);
+        position2.print();
     }
 }
